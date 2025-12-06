@@ -1,0 +1,62 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Solution (Test Input)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
+            "args": [
+                "${input:day}",
+                "${input:task}"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "Run Solution (Actual Input)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
+            "args": [
+                "${input:day}",
+                "${input:task}"
+            ],
+            "justMyCode": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "day",
+            "type": "promptString",
+            "description": "Day number (1-25)",
+            "default": "06"
+        },
+        {
+            "id": "task",
+            "type": "pickString",
+            "description": "Task number",
+            "options": [
+                "1",
+                "2"
+            ],
+            "default": "1"
+        },
+        {
+            "id": "testFlag",
+            "type": "pickString",
+            "description": "Input type",
+            "options": [
+                {
+                    "label": "Test input",
+                    "value": "--test"
+                },
+                {
+                    "label": "Actual input",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}
