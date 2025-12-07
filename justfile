@@ -1,5 +1,9 @@
-run day task:
-    @uv run run.py {{day}} {{task}}
+run day task *args:
+    @uv run run.py {{day}} {{task}} {{args}}
+
+# Run only test input (e.g., just test-run 7 1)
+test-run day task:
+    @uv run run.py {{day}} {{task}} --test-only
 
 fix *args:
     @uv run ruff check src --fix {{args}}

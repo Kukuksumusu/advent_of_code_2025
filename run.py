@@ -52,6 +52,9 @@ def main():
     parser = argparse.ArgumentParser(description="Run Advent of Code solutions")
     parser.add_argument("day", type=int, help="Day number (1-25)")
     parser.add_argument("task", type=int, choices=[1, 2], help="Task number (1 or 2)")
+    parser.add_argument(
+        "-t", "--test-only", action="store_true", help="Run only test input, skip real input"
+    )
     args = parser.parse_args()
 
     day_str = f"{args.day:02d}"
@@ -103,6 +106,10 @@ def main():
         sys.exit(1)
 
     print(f"\n✅ Test PASSED! (expected {expected_value})")
+
+    if args.test_only:
+        sys.exit(0)
+
     print("-" * 40)
 
     # Step 3: Run with real input
