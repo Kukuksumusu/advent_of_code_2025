@@ -8,6 +8,10 @@ test-run day task:
 fix *args:
     @uv run ruff check src --fix {{args}}
 
+check:
+    @uv run ruff check src
+    @uv run mypy src --explicit-package-bases
+
 # Create a new day structure (e.g., just create 03)
 create day:
     #!/usr/bin/env bash

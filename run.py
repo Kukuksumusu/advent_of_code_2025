@@ -1,5 +1,6 @@
 import argparse
 import importlib.util
+import inspect
 import sys
 from pathlib import Path
 
@@ -40,10 +41,17 @@ def load_solution_module(solution_file: Path):
     return module
 
 
-def run_solution(module, input_data: str, label: str) -> str:
+def run_solution(module, input_data: str, label: str, is_test: bool) -> str:
     """Run the solution and return the result as a string."""
     print(f"Running with {label} input...")
-    result = module.solve(input_data)
+
+    # Check if solve accepts is_test parameter for backward compatibility
+    sig = inspect.signature(module.solve)
+    if "is_test" in sig.parameters:
+        result = module.solve(input_data, is_test=is_test)
+    else:
+        result = module.solve(input_data)
+
     print(f"Result: {result}")
     return str(result)
 
@@ -85,7 +93,7 @@ def main():
         sys.exit(1)
 
     test_input = test_input_file.read_text()
-    test_result = run_solution(module, test_input, "test")
+    test_result = run_solution(module, test_input, "test", is_test=True)
 
     # Step 2: Check against expected result
     expected_results = parse_expected_results(expected_file)
@@ -118,7 +126,7 @@ def main():
         sys.exit(1)
 
     real_input = real_input_file.read_text()
-    run_solution(module, real_input, "real")
+    run_solution(module, real_input, "real", is_test=False)
 
 
 if __name__ == "__main__":

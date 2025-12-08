@@ -26,7 +26,22 @@ src/
 └── ...
 ```
 
-Each solution file must implement a `solve(input_data: str) -> int` function.
+Each solution file must implement a `solve` function:
+
+```python
+def solve(input_data: str) -> int:
+    ...
+```
+
+Optionally, the function can accept an `is_test` parameter to differentiate between test and real input:
+
+```python
+def solve(input_data: str, is_test: bool = False) -> int:
+    if is_test:
+        # Different behavior for test input
+        ...
+    ...
+```
 
 ## Usage
 
