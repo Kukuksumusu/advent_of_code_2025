@@ -1,0 +1,4 @@
+# Expected results for test input
+# Format: task1=VALUE, task2=VALUE (one per line, or both on same line)
+task1=7
+task2=33
