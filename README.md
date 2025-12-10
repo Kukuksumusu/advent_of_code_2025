@@ -4,7 +4,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025) written in
 
 ## Setup
 
-This project uses [uv](https://docs.astral.sh/uv/) for dependency management. To install dependencies:
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management and [just](https://github.com/casey/just) as a command runner.
 
 ```bash
 uv sync
