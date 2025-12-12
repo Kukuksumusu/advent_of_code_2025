@@ -52,8 +52,8 @@ def solve(input_data: str) -> int:
         tree_size, tree_presents = parse_tree_line(lines[i])
         i += 1
 
-        # Quick rejection: if tree is too big for presents (max 9 cells per present)
-        if tree_size > sum(cnt * 9 for cnt in tree_presents):
+        # Quick accept: if tree is too big for presents (max 9 cells per present)
+        if tree_size >= sum(cnt * 9 for cnt in tree_presents):
             res += 1
             continue
 
@@ -65,7 +65,7 @@ def solve(input_data: str) -> int:
             continue
 
         print(
-            f"For this case, we should try ot find solution, but we will assume it fits: {tree_size} vs {presents_size}"
+            f"For this case, we should try to find solution, but we will assume it fits: {tree_size} vs {presents_size}"
         )
         res += 1
 
