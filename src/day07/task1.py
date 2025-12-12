@@ -16,13 +16,14 @@ def handle_row(field: list[list[str]]) -> tuple[list[list[str]], int]:
         if field[0][i] == "S":
             if field[1][i] == "^":
                 split_count += 1
-                if i > 0 and field[1][i-1] == ".":
-                    field[1][i-1] = "S"
-                if i < width - 1 and field[1][i+1] == ".":
-                    field[1][i+1] = "S"
+                if i > 0 and field[1][i - 1] == ".":
+                    field[1][i - 1] = "S"
+                if i < width - 1 and field[1][i + 1] == ".":
+                    field[1][i + 1] = "S"
             elif field[1][i] == ".":
                 field[1][i] = "S"
     return field[1:], split_count
+
 
 def solve(input_data: str) -> int:
     field = [list(x) for x in input_data.strip().splitlines()]

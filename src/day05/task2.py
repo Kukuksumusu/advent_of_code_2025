@@ -9,12 +9,12 @@ def solve(input_data: str) -> int:
         start, end = map(int, range_.split("-"))
         # print(f"{ranges}, inserting: {(start, end)}")
 
-        next_range_index = bisect.bisect_left(ranges, start, key = lambda x: x[0])
+        next_range_index = bisect.bisect_left(ranges, start, key=lambda x: x[0])
         if next_range_index < len(ranges) and ranges[next_range_index] == (start, end):
             continue
 
         i = next_range_index
-        while i > 0 and ranges[i-1][1] >= start:
+        while i > 0 and ranges[i - 1][1] >= start:
             i -= 1
         merged_start = ranges[i][0] if i != next_range_index else start
 
@@ -26,4 +26,4 @@ def solve(input_data: str) -> int:
         ranges[i:j] = [(merged_start, merged_end)]
 
     # return ranges
-    return sum(e - s + 1 for s,e in ranges)
+    return sum(e - s + 1 for s, e in ranges)

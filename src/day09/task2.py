@@ -15,4 +15,3 @@ def solve(input_data: str) -> int:
         if polygon.covers(Polygon([tile1, (tile1[0], tile2[1]), tile2, (tile2[0], tile1[1])])):
             largest_rectangle = current_rectangle
     return largest_rectangle
-

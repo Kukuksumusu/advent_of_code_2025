@@ -11,6 +11,7 @@ def get_joltage(bank: str) -> int:
 
     return first_digit * 10 + second_digit
 
+
 def solve(input_data: str) -> int:
     banks = input_data.strip().splitlines()
     res = 0

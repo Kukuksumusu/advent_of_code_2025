@@ -1,6 +1,7 @@
 def parse_input(input_data: str):
     return [tuple(map(int, r.split("-"))) for r in input_data.split(",")]
 
+
 def is_invalid(number: int) -> bool:
     # this works because we can imagine the number as a "loop"
     # repeating the number twice adds the "pattern" at least twice again
@@ -17,11 +18,12 @@ def is_invalid(number: int) -> bool:
     for seq_len in range(1, len(str(number)) // 2 + 1):
         seq = str(number)[:seq_len]
         for i in range(seq_len, len(str(number)), seq_len):
-            if str(number)[i:i+seq_len] != seq:
+            if str(number)[i : i + seq_len] != seq:
                 break
         else:
             return True
     return False
+
 
 def solve(input_data: str) -> int:
     ranges = parse_input(input_data)

@@ -20,4 +20,3 @@ def solve(input_data: str) -> int:
                 res += 1
             num = new_number
     return res
-

@@ -9,4 +9,3 @@ def solve(input_data: str) -> int:
         if num == 0:
             res += 1
     return res
-

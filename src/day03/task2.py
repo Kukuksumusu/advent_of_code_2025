@@ -1,4 +1,3 @@
-
 TARGET_LEN = 12
 
 
@@ -18,8 +17,9 @@ def get_joltage(bank: str) -> int:
         end_index = -TARGET_LEN + i + 1
         highest_digit, highest_index = find_highest_digit(bank[:end_index] if end_index < 0 else bank)
         res += highest_digit * 10 ** (-end_index)
-        bank = bank[highest_index + 1:]
+        bank = bank[highest_index + 1 :]
     return res
+
 
 def solve(input_data: str) -> int:
     banks = input_data.strip().splitlines()

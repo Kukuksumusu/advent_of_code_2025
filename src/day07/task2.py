@@ -15,12 +15,13 @@ def handle_row(field: list[list[int]]) -> list[list[int]]:
         if current_value >= 1:
             if field[1][i] == -1:
                 if i > 0:
-                    field[1][i-1] += current_value
+                    field[1][i - 1] += current_value
                 if i < width - 1:
-                    field[1][i+1] += current_value
+                    field[1][i + 1] += current_value
             else:
                 field[1][i] += current_value
     return field[1:]
+
 
 def solve(input_data: str) -> int:
     field = [[0 if i == "." else 1 if i == "S" else -1 for i in x] for x in input_data.strip().splitlines()]

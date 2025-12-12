@@ -7,6 +7,7 @@ test-run day task:
 
 fix *args:
     @uv run ruff check src --fix {{args}}
+    @uv run ruff format src
 
 check:
     @uv run ruff check src
