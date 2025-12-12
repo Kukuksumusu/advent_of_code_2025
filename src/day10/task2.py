@@ -1,5 +1,5 @@
 import numpy as np
-import pulp
+import pulp  # type: ignore[import-untyped]
 
 
 def solve_machine(joltage: list[int], buttons: list[tuple[int, ...]]) -> int:

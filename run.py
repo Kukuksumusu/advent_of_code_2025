@@ -77,7 +77,11 @@ def main():
         print(f"Error: Solution file not found at {solution_file}")
         sys.exit(1)
 
-    test_input_file = day_dir / "input_test.txt"
+    # Look for task-specific test input first, fallback to generic test input
+    task_specific_test = day_dir / f"input_test{args.task}.txt"
+    generic_test = day_dir / "input_test.txt"
+    test_input_file = task_specific_test if task_specific_test.exists() else generic_test
+    
     real_input_file = day_dir / "input.txt"
     expected_file = day_dir / "expected_results.txt"
 
